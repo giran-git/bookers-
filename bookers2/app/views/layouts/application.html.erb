@@ -2,40 +2,51 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    　<%= csrf_meta_tags %>
+    　<%= csp_meta_tag %>
 
-    <script src="https://kit.fontawesome.com/d842fc8b42.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/bad9a04520.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-    <body>
+  <body>
     <!--ヘッダーの記述-->
-     <header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-fixed-top navbar-inverse">
+
       <div class="container">
 
         <nav class="nav navbar-nav navbar-left">
           <span>Bookers</span>
         </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <!--if文でサインインとアウト時の表示を変更　何がへん？-->
-
+            <!--if文でサインインとアウト時の表示を変更-->
+            <% if user_signed_in? %>
+            <li><%= link_to ' home', users_show_path(current_user), class: 'fas fa-home' %></li>
+            <li><%= link_to ' users', user_session_path, class: 'fas fa-user' %></li>
+            <li><%= link_to ' books', books_path, class: 'fas fa- book-open' %></li>
+            <li><%= link_to ' logout', destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt' %></li>
+            <% else %>
+            <li><%= link_to ' home', root_path, class: 'fas fa-home' %></li>
+            <li><%= link_to ' about', homes_about_path, class: 'fas fa-link' %></li>
+            <li><%= link_to ' sign up', new_user_registration_path, class: 'fas fa-user-plus' %></li>
+            <li><%= link_to ' login', new_user_session_path, class: 'fas fa-sign-in-alt' %></li>
+            <% end %>
           </ul>
         </nav>
 
       </div>
     </header>
     <!--ヘッダーの記述-->
-    <%= yield %>
-    <footer class= "container mt-5">
-      <div class="row">
-        <div class-"mx-auto">
-          <p>CopyRight Infratop.inc</p>
-        </div>
-      </div>
+    <div class="container">
+      <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
 
-    </footer>
+    </div>
+
+    <%= yield %>
   </body>
 </html>

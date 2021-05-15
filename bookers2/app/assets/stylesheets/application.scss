@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";  
+ @import "bootstrap-sprockets";
 @import "bootstrap";
 
 header {
@@ -27,8 +27,10 @@ header .navbar-left span {
 
 body {
 	margin-top: 40px;
+	text-align: left;
 }
 
 .actions {
 	margin-top:10px;
 }
+

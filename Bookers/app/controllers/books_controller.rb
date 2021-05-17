@@ -7,7 +7,7 @@ class BooksController < ApplicationController
 
   def show
   	@book = Book.find(params[:id])
-  	
+
   end
 
 
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
   def destroy
   	book = Book.find(params[:id])
   	book.destroy
-  	flash[:notice] = "Book was successfully created."
+  	flash[:notice] = "Book was successfully destroy."
   	redirect_to books_path
   end
 

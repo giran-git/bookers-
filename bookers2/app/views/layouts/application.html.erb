@@ -4,14 +4,13 @@
     <title>Bookers3</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script src="https://kit.fontawesome.com/d842fc8b42.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fb63ee4e0c.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Bookers</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,19 +64,7 @@
             </ul>
         </div>
     </nav>
-  </header>
 
     <%= yield %>
-
-
-
-    <footer>
-      <div class="row">
-        <div class="mx-auto">
-          <p>CopyRight Infratop.inc</p>
-        </div>
-      </div>
-    </footer>
-    </body>
-</html>
+  </body>
 </html>

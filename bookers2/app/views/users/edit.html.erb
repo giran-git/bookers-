@@ -1,23 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>User info</h1>
-      <% if @user.errors.any? %>
-        <%= @user.errors.count %>error prohibited this obj from being saved:
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      <% end %>
-      <%= form_with model:@user, local:true do |f| %>
-        <p>Name</p>
-        <%= f.text_field :name %>
-        <p>Image</p>
-        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-        <p>Introduction<p>
-        <%= f.text_area :introduction %>
-        <p><%= f.submit 'Update User' %></p>
-      <% end %>
-      <p style="text-align:center;">CopyRight Infratop.inc</p>
-    </div>
+<h1>User info</h1>
+<%= form_for(@user) do |f| %>
+<%= render 'books/error', model: @user %>
+  <div class="user-name">Name</div>
+    <%= f.text_field :name %>
+  <div class="user-edit-image">Image</div>
+    <%= f.attachment_field :profile_image %>
+  <div class="form-body">Introduction</div>
+    <%= f.text_area :introduction %><br>
+  <div class="upload">
+    <%= f.submit " Update User" %>
   </div>
-</div>
+<% end %>

@@ -1,17 +1,26 @@
 <main>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-xs-6 mx-outo">
-      <h1>Editing Book</h1>
-        <%= render 'books/error', model: @book %>
-        <%= render 'books/book', book: @book %>
-      <div class="menu">
-        <%= link_to "Show", book_path(@book) %>
-        |
-        <%= link_to "Back", books_path %>
+  <p id="notice"></p>
+  <div class='container'>
+    <div class='row'>
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          <h1>Editing Book</h1>
+            <% if @book.errors.any? %>
+            <%= @book.errors.count %>error prohibited this obj from being saved:
+             <% @book.errors.full_messages.each do |message| %>
+             <%= message %>
+            <% end %>
+          <% end %>
+          <%= form_with model:@book, local:true do |f| %>
+        <h4>Title</h4>
+        <p><%= f.text_field :title %></p>
+        <h4>Opinion</h4>
+        <p><%= f.text_area :body %></p>
+        <p><%= f.submit "Update Book", class: "btn btn-primary col-xs-12" %></p>
+      <% end %>
+      <%= link_to "Show", book_path(params[:id]) %>
+      |
+      <%= link_to "Back", books_path %>
       </div>
-      </div>
-    <div class="col-xs-3"></div>
+    </div>
   </div>
-</div>
 </main>

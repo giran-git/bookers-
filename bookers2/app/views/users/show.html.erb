@@ -1,8 +1,8 @@
 
 <main>
+  <%= flash[:notice] %>
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <%= render 'books/error', model: @book %>
     <div class="col-md-3">
       <%= render 'users/user', user: @user %>
       <h2 class="row">New book</h2>
